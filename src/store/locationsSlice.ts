@@ -1,29 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { type PayloadAction } from '@reduxjs/toolkit'
-import { type Location } from '@/types/weather'
+import { type CurrentWeather } from '@/types/weather'
 
-export interface LocationListState {
-  value: Location[]
+export interface CurrentWeatherListState {
+  value: CurrentWeather[]
 }
 
-const initialState: LocationListState = {
+const initialState: CurrentWeatherListState = {
   value: []
 }
 
-export const locationsSlice = createSlice({
-  name: 'locations',
+export const currentWeatherListSlice = createSlice({
+  name: 'currentWeatherList',
   initialState,
   reducers: {
-    addLocation: (state, action: PayloadAction<Location>) => {
+    addCurrentWeather: (state, action: PayloadAction<CurrentWeather>) => {
       state.value = state.value.concat(action.payload)
     },
-    removeLocation: (state, action: PayloadAction<string>) => {
+    removeCurrentWeather: (state, action: PayloadAction<string>) => {
       state.value = state.value.filter(
-        (location: Location) => location.name !== action.payload
+        (currentWeather: CurrentWeather) =>
+          currentWeather.location.name !== action.payload
       )
     }
   }
 })
 
-export const { addLocation, removeLocation } = locationsSlice.actions
-export default locationsSlice.reducer
+export const { addCurrentWeather, removeCurrentWeather } =
+  currentWeatherListSlice.actions
+export default currentWeatherListSlice.reducer

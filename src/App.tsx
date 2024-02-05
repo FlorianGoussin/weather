@@ -1,18 +1,12 @@
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View } from 'react-native'
-// import { WEATHER_API_URL, WEATHER_API_KEY } from '@env'
-
-import { store } from './store/store'
-import { Provider } from 'react-redux'
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <View style={styles.container}>
-        <Text>Open up App.tsx to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </View>
-    </Provider>
+    <View style={styles.container}>
+      <Text>Open up App.tsx to start working on your app!</Text>
+      <StatusBar style="auto" />
+    </View>
   )
 }
 
