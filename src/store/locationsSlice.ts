@@ -25,5 +25,5 @@ export const locationsSlice = createSlice({
   }
 })
 
-export const { addLocation } = locationsSlice.actions
+export const { addLocation, removeLocation } = locationsSlice.actions
 export default locationsSlice.reducer
