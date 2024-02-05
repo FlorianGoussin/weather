@@ -14,14 +14,21 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
+     "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.syzygy-dev.routes",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses the location to place the user avatar on the map.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses the location to place the user avatar on the map."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#222"
+      },
+      "package": "com.haytherecharlie.exporoutertypescript",
+      "permissions": ["android.permission.ACCESS_FINE_LOCATION"]
     },
     "web": {
       "favicon": "./assets/favicon.png"
