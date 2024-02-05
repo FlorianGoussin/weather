@@ -1,11 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { type PayloadAction } from '@reduxjs/toolkit'
-import { type CurrentResponse } from '@/types/weather'
-
-interface Location {
-  lat: number
-  lon: number
-}
+import { type Location } from '@/types/weather'
 
 export interface LocationListState {
   value: Location[]
@@ -21,6 +16,11 @@ export const locationsSlice = createSlice({
   reducers: {
     addLocation: (state, action: PayloadAction<Location>) => {
       state.value = state.value.concat(action.payload)
+    },
+    removeLocation: (state, action: PayloadAction<string>) => {
+      state.value = state.value.filter(
+        (location: Location) => location.name !== action.payload
+      )
     }
   }
 })
