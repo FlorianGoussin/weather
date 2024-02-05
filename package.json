@@ -6,7 +6,12 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build:android": "expo run:android",
+    "build:ios": "expo run:ios",
+    "build:web": "npx expo export --platform web -c --output-dir web-build",
+    "lint": "eslint src/**/*.tsx src/**/*.ts",
+    "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
     "expo": "~50.0.5",
