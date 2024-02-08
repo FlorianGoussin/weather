@@ -9,13 +9,12 @@ export default function App() {
   return (
     <SafeAreaView
       style={{
-        flex: 1,
+        flex: 1
         // paddingTop: insets.top,
-        paddingBottom: insets.bottom
+        // paddingBottom: insets.bottom
       }}
     >
       <Search />
-      <Text>Open up App.tsx to start working on your app!</Text>
       <StatusBar style="auto" />
     </SafeAreaView>
   )

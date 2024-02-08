@@ -27,20 +27,32 @@ import axios from 'axios'
 import { type CurrentWeather } from '@/types/weather.d'
 import { WEATHER_API_URL, WEATHER_API_KEY } from '@env'
 
+type WeatherError = {
+  code: number
+  message: string
+}
+
 export async function getCurrentWeather(
-  searchStr: string
+  searchQuery: string
 ): Promise<CurrentWeather | null> {
   try {
-    const { data } = await axios.get<CurrentWeather>(`${WEATHER_API_URL}`, {
+    const url = `${WEATHER_API_URL}/current.json`
+    const options = {
+      method: 'get',
       params: {
         key: WEATHER_API_KEY,
-        q: searchStr,
+        q: searchQuery,
         aqi: 'no'
+      },
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
       }
-    })
+    }
+    const { data } = await axios<CurrentWeather>(url, options)
     return data
-  } catch (e) {
-    console.error(e)
+  } catch (error: unknown) {
+    console.error((error as WeatherError).message)
     return null
   }
 }
