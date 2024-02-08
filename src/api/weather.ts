@@ -27,12 +27,14 @@ import axios from 'axios'
 import { type CurrentWeather } from '@/types/weather.d'
 import { WEATHER_API_URL, WEATHER_API_KEY } from '@env'
 
-export async function current(q: string): Promise<CurrentWeather | null> {
+export async function getCurrentWeather(
+  searchStr: string
+): Promise<CurrentWeather | null> {
   try {
     const { data } = await axios.get<CurrentWeather>(`${WEATHER_API_URL}`, {
       params: {
         key: WEATHER_API_KEY,
-        q,
+        q: searchStr,
         aqi: 'no'
       }
     })

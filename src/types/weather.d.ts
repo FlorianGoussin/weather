@@ -39,7 +39,7 @@ export type Current = {
   gust_kph: number
 }
 
-export type CurrentResponse = {
+export type CurrentWeather = {
   location: Location
   current: Current
 }

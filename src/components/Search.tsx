@@ -1,43 +1,31 @@
-import { StyleSheet, View, Button, TextInput } from 'react-native'
-import { useEffect, useState, useMemo } from 'react'
+import { StyleSheet, View, Text, Button } from 'react-native'
+import { useState } from 'react'
 import { getCurrentWeather } from '@/api/weather'
-import { useDispatch, useSelector } from 'react-redux'
-import { debounce } from 'lodash'
+// import { useDispatch } from 'react-redux'
+import { Searchbar } from 'react-native-paper'
 
 export default function Search() {
-  const dispatch = useDispatch()
-  const [searchTerm, setSearchTerm] = useState<string>('')
+  // const dispatch = useDispatch()
+  const [searchQuery, setSearchQuery] = useState<string>('')
 
-  useEffect(() => {
-    async function fetchCurrentWeather() {
-      const response = await getCurrentWeather('Albuquerque')
-    }
-    fetchCurrentWeather()
-
-    return () => {
-      debouncedResults.cancel()
-    }
-  }, [])
-
-  const debouncedResults = useMemo(() => {
-    return debounce(handleChangeText, 300)
-  }, [])
-
-  function handleChangeText(newSearchTerm: string) {
-    setSearchTerm(newSearchTerm)
-  }
+  // function handleButtonPress() {
+  //   async function fetchCurrentWeather() {
+  //     const response = await getCurrentWeather(searchQuery)
+  //   }
+  //   fetchCurrentWeather()
+  // }
 
   return (
-    <View>
-      <TextInput
-        value={searchTerm}
+    <View style={styles.view}>
+      <Searchbar
+        value={searchQuery}
+        onChangeText={setSearchQuery}
         placeholder="Search for a city"
-        onChangeText={debouncedResults}
         style={styles.input}
-      ></TextInput>
+      ></Searchbar>
       <Button
-        onPress={onPressLearnMore}
-        title="Learn More"
+        onPress={() => {}}
+        title="Add "
         color="#841584"
         accessibilityLabel="Learn more about this purple button"
       />
@@ -52,9 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10
+    flex: 1,
+    borderRadius: 0
   }
 })

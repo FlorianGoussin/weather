@@ -1,20 +1,24 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
+import Search from './components/Search'
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 
 export default function App() {
+  const insets = useSafeAreaInsets()
+
   return (
-    <View style={styles.container}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        // paddingTop: insets.top,
+        paddingBottom: insets.bottom
+      }}
+    >
+      <Search />
       <Text>Open up App.tsx to start working on your app!</Text>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
+// const styles = StyleSheet.create({})
