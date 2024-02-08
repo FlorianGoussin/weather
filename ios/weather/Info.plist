@@ -41,35 +41,24 @@
 		<false/>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
-		<!-- <key>NSExceptionDomains</key>
-		<dict>
-				<key>localhost</key>
-				<dict>
-						<key>NSExceptionAllowsInsecureHTTPLoads</key>
-						<true/>
-				</dict>
-		</dict> -->
-
 		<key>http://api.weatherapi.com/v1</key>
 		<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSTemporaryExceptionMinimumTLSVersion</key>
-				<string>TLSv1.1</string>
-	  </dict>
-
+			<key>NSIncludesSubdomains</key>
+			<true/>
+			<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+			<key>NSTemporaryExceptionMinimumTLSVersion</key>
+			<string>TLSv1.1</string>
+		</dict>
 		<key>https://cat-fact.herokuapp.com/facts</key>
 		<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSTemporaryExceptionMinimumTLSVersion</key>
-				<string>TLSv1.1</string>
-	  </dict>
-
+			<key>NSIncludesSubdomains</key>
+			<true/>
+			<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+			<key>NSTemporaryExceptionMinimumTLSVersion</key>
+			<string>TLSv1.1</string>
+		</dict>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>This app uses the location to place the user avatar on the map.</string>

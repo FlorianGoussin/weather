@@ -1,35 +1,26 @@
-import { useMemo, useCallback } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import { useState } from 'react'
 import { getCurrentWeather } from '@/api/weather'
-// import { useDispatch } from 'react-redux'
-import { Searchbar, Button } from 'react-native-paper'
-import { debounce } from 'lodash'
+import { Searchbar } from 'react-native-paper'
 import { type CurrentWeather } from '@/types/weather.d'
-import axios from 'axios'
-
-type CatFact = { text: string }
+import { useDebounce } from '@/hooks/useDebounce'
 
 export default function Search() {
-  // const dispatch = useDispatch()
-  const [searchQuery, setSearchQuery] = useState<string>('')
   const [data, setData] = useState<CurrentWeather | null>(null)
-
-  function sendRequest(newSearch: string) {
-    console.log('newSearch:', newSearch)
+  const [searchQuery, setSearchQuery] = useState<string>('')
+  const debounced = useDebounce(() => {
     async function fetchCurrentWeather() {
-      setData(await getCurrentWeather(searchQuery))
+      if (searchQuery) {
+        console.log('debounced searchQuery:', searchQuery)
+        setData(await getCurrentWeather(searchQuery))
+      }
     }
     fetchCurrentWeather()
-  }
+  }, 360)
 
-  const debouncedSearch = useMemo(() => {
-    return debounce(sendRequest, 1000)
-  }, [sendRequest])
-
-  function handleChangeText(newSearch: string) {
-    setSearchQuery(newSearch)
-    if (newSearch) debouncedSearch(newSearch)
+  function handleChangeText(text: string) {
+    setSearchQuery(text)
+    debounced()
   }
 
   return (
@@ -46,6 +37,7 @@ export default function Search() {
           style={styles.input}
         ></Searchbar>
       </View>
+      <Text>searchQuery: {searchQuery}</Text>
 
       <Text>{data?.location.country}</Text>
       <Text>{data?.location.name}</Text>
