@@ -1,5 +1,5 @@
-import React, { Children } from 'react'
-import { StyleSheet } from 'react-native'
+import React, { ReactNode } from 'react'
+import { StyleSheet, ViewStyle } from 'react-native'
 import { Button as PaperButton } from 'react-native-paper'
 import { theme } from '@/Theme'
 
@@ -11,8 +11,9 @@ type Props = {
     | 'elevated'
     | 'contained-tonal'
     | undefined
-  style?: object
-  [key: string]: any
+  style?: ViewStyle
+  children?: ReactNode
+  [key: string]: unknown // ...props
 }
 
 export default function Button({ mode, style, children, ...props }: Props) {

@@ -6,7 +6,7 @@ import { theme } from '@/Theme'
 type Props = {
   errorText?: string
   description?: string
-  [key: string]: any // other props
+  [key: string]: unknown // ...props
 }
 
 export default function TextInput({ errorText, description, ...props }: Props) {

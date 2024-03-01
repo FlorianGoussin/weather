@@ -1,4 +1,5 @@
 import React from 'react'
+import { Background, BackButton } from '@/components'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { RootStackParamList } from '@/types/navigation'
 
@@ -7,5 +8,9 @@ type Props = {
 }
 
 export default function HomeScreen({ navigation }: Props) {
-  return <div>Reset Password Screen</div>
+  return (
+    <Background>
+      <BackButton goBack={navigation.goBack} />
+    </Background>
+  )
 }

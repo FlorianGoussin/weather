@@ -3,7 +3,7 @@ import { Text } from 'react-native-paper'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { RootStackParamList } from '@/types/navigation'
 
-import { Background, Button, TextInput, BackButton } from '@/components'
+import { Background, Button } from '@/components'
 
 type Props = {
   navigation: StackNavigationProp<RootStackParamList, 'HomeScreen'>

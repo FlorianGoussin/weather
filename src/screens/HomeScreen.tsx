@@ -1,7 +1,7 @@
 import React from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { RootStackParamList } from '@/types/navigation'
-// import { Background, Button, TextInput, BackButton } from '@/components'
+import { Background, BackButton } from '@/components'
 import Search from '@/components/Search'
 
 type Props = {
@@ -10,8 +10,9 @@ type Props = {
 
 export default function HomeScreen({ navigation }: Props) {
   return (
-    <div>
+    <Background>
+      <BackButton goBack={navigation.goBack} />
       <Search />
-    </div>
+    </Background>
   )
 }
