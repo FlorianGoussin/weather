@@ -1,1 +1,5 @@
 export * from './Search'
+export { default as Background } from './Background'
+export { default as BackButton } from './BackButton'
+export { default as Button } from './Button'
+export { default as TextInput } from './TextInput'
